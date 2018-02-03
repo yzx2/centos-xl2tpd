@@ -3,7 +3,8 @@ docker_net_sub=$DOCKER_NET_SUB
 left_ip=`ifconfig |grep ${docker_net_sub:-172.18}|awk  '{print $2}'`
 
 
-cat >> /etc/strongswan/ipsec.conf << EOF
+cat > /etc/strongswan/ipsec.conf << EOF
+config setup
 conn %default
         ikelifetime=60m
         keylife=20m
@@ -42,7 +43,7 @@ charon {
 include strongswan.d/*.conf
 EOF
 
-cat >> /etc/strongswan/ipsec.secrets << EOF
+cat > /etc/strongswan/ipsec.secrets << EOF
 : PSK "${PSK_passwd:-123}"
 EOF
 
@@ -61,9 +62,6 @@ pppoptfile = /etc/ppp/options.xl2tpd
 length bit = yes
 EOF
 
-#cat >> /etc/ppp/chap-secrets <<EOF
-#test	*	test	*
-#EOF
 
 
 iptables --table nat --append POSTROUTING --jump MASQUERADE
