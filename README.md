@@ -10,6 +10,7 @@ docker run -d \
 ```
 
 -e DOCKER_NET_SUB=... (defaults to 172.18)
+
 -e PSK_passwd=... (defaults to 123)
 
 /data/apps/xl2tpd/chap-secrets
