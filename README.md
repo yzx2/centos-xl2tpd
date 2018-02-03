@@ -13,6 +13,8 @@ docker run -d \
 -e PSK_passwd=... (defaults to 123)
 
 /data/apps/xl2tpd/chap-secrets
+```shell
 # Secrets for authentication using CHAP
 # client	server	secret			IP addresses
 test  * test *
+```
