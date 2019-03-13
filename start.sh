@@ -30,14 +30,14 @@ charon {
                 include strongswan.d/charon/*.conf
         }
         filelog {
-        /var/log/strongswan.log {
+          /var/log/strongswan.log {
             time_format = %b %e %T
             append = no
             default = 1
             flush_line = yes
             ike = 2
+          }
         }
-    }
 }
 
 include strongswan.d/*.conf
